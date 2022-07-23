@@ -11,6 +11,12 @@ public class Code {
     public static final Integer UPDATE_ERR = 20030;
     public static final Integer GET_ERR = 20040;
 
+    public static final Integer SYS_ERR = 50001;
+    public static final Integer SYS_TIMEOUT_ERR = 50002;
+    public static final Integer SYS_UNKNOWN_ERR = 59999;
+
+    public static final Integer BUSINESS_ERR = 60001;
+
 
 }
 
