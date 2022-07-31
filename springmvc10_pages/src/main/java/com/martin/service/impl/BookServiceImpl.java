@@ -45,11 +45,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAll() {
-        try {
-            int a=1/0;
-        }catch (ArithmeticException e){
-            throw new SystemException(Code.SYS_ERR, "请稍后");
-        }
         return bookDao.getAll();
     }
 }
