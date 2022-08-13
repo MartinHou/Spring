@@ -39,6 +39,11 @@ class Mybatisplus02DqlApplicationTests {
         System.out.println(users);
 
         // lqw.lt(null != xxx , User::getAge , xxx) 判断是否输入条件为空
+
+        // lt le gt ge eq between
+        // like
+        LambdaQueryWrapper<User> lqw1 = new LambdaQueryWrapper<>();
+        lqw1.like(User::getName, "M");  // 还有likeLeft, likeRight
     }
 
     @Test
