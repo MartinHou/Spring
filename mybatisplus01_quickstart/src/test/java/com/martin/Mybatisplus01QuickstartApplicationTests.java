@@ -20,4 +20,26 @@ class Mybatisplus01QuickstartApplicationTests {
 		System.out.println(users);
 	}
 
+	@Test
+	void testSave(){
+		User user = new User();
+		user.setName("Martin");
+		user.setPassword("123123");
+		user.setAge(22);
+		user.setTel("17768031372");
+		userdao.insert(user);
+	}
+
+	@Test
+	void testDelete() {
+		userdao.deleteById(1558298531217907713L);
+	}
+
+	@Test
+	void testUpdate() {
+		User user = new User();
+		user.setId(1L);
+		user.setAge(99);
+		userdao.updateById(user);
+	}
 }
