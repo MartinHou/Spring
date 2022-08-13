@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class Mybatisplus02DqlApplicationTests {
@@ -42,10 +43,24 @@ class Mybatisplus02DqlApplicationTests {
 
     @Test
     void testCastGet(){
+        // 查询投影(2种Wrapper对应两种方式)
         LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<>();
         lqw.select(User::getName, User::getAge);
+//        QueryWrapper<User> lqw = new QueryWrapper<>();
+//        lqw.select("name", "age");
         List<User> users = userdao.selectList(lqw);
         System.out.println(users);
+    }
+
+    @Test
+    void testCount(){
+        // 查询投影
+        // 只能用这种Wrapper计数
+        QueryWrapper<User> lqw = new QueryWrapper<>();
+        lqw.select("count(*) as count,name");
+        lqw.groupBy("name");
+        List<Map<String, Object>> maps = userdao.selectMaps(lqw);
+        System.out.println(maps);
     }
 
 }
