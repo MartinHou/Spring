@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb?serverTimeZone=UTC
+    username: root
+    password: hjzgy512
+  # 清除无用显示
+  main:
+    banner-mode: off
+
+mybatis-plus:
+  # 开启mp日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false # 清除无用显示
+    db-config:
+      id-type: auto   # 默认assign_id，雪花算法
+      table-prefix: t_
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
