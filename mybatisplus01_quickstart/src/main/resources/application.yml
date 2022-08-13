@@ -5,3 +5,8 @@ spring:
     url: jdbc:mysql://localhost:3306/mydb?serverTimeZone=UTC
     username: root
     password: hjzgy512
+
+# 开启mp日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
